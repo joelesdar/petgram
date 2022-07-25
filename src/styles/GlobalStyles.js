@@ -7,6 +7,8 @@ export const GlobalStyle = createGlobalStyle`
     --main-blue: #1C82F6;
     --green-blue: #00FFFF;
     --purple: #FF19C2;
+    --orange: #F54333;
+    --pink: #FF5E4F;
   }
         
   *, *::before, *::after {

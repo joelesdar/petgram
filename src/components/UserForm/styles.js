@@ -4,7 +4,7 @@ export const Form = styled.form`
   padding: 16px;
 `
 export const Title = styled.h2`
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 700;
   padding: 8px 0;
   text-align: center;
@@ -25,10 +25,12 @@ export const Input = styled.input`
   padding: 8px 4px;
   display: block;
   width: 100%;
+  &[disabled] {
+    opacity: .5;
+  }
 `
 
 export const Button = styled.button`
-  background: -prefix-linear-gradient(left, var(--main-blue), var(--green-blue));
   background: var(--main-blue);
   border-radius: 4px;
   color: #fff;
@@ -38,4 +40,20 @@ export const Button = styled.button`
   text-align: center;
   margin-top: 20px;
   font-size: 16px;
+  &[disabled] {
+    opacity: .5;
+  }
+`
+
+export const Error = styled.span`
+  background: var(--pink);
+  color: #fff;
+  width: 100%;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 3px solid var(--orange);
+  border-radius: 4px;
+  height: 32px;
+  text-align: center;
 `
