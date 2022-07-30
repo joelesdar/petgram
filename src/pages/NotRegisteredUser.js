@@ -15,20 +15,27 @@ export const NotRegisteredUser = () => {
     const input = { email, password }
     const variable = { input }
     registerMutation({ variables: variable })
-      .then(activateLogged)
+      .then((data) => {
+        const { signup } = data.data
+        activateLogged(signup)
+      })
   }
 
   const onSubmitLogin = ({ email, password }) => {
     const input = { email, password }
     const variable = { input }
     loginMutation({ variables: variable })
-      .then(activateLogged)
+      .then((data) => {
+        const { login } = data.data
+        console.log(login)
+        activateLogged(login)
+      })
   }
 
   return (
     <>
-      <UserForm onSubmit={onSubmit} error={errorMsg} disabled={loadingRegister} title='Sign In' />
-      <UserForm onSubmit={onSubmitLogin} error={errorLoginMsg} disabled={loadingLogin} title='Sign Up' />
+      <UserForm onSubmit={onSubmit} error={errorMsg} disabled={loadingRegister} title='Registrarse' />
+      <UserForm onSubmit={onSubmitLogin} error={errorLoginMsg} disabled={loadingLogin} title='Ingresar' />
     </>
   )
 }

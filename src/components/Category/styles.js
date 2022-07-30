@@ -10,11 +10,14 @@ export const Link = styled(LinkRouter)`
 `
 
 export const Image = styled.img`
-  border: 1px solid #ddd;
+  /* border: 2px solid transparent; */
   box-shadow: 0px 10px 14px rgba(0, 0, 0, .2);
   border-radius: 50%;
   overflow: hidden;
   object-fit: cover;
   height: 75px;
   width: 75px;
+  box-sizing: content-box;
+  padding: 2px;
+  background: linear-gradient(to top, var(--main-blue), var(--purple));
 `

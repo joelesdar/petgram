@@ -6,6 +6,8 @@ export const List = styled.ul`
   overflow: scroll;
   width: 100%;
   scrollbar-width: none;
+  padding-left: 0;
+  padding-bottom: 24px;
   &::-webkit-scrollbar {
     display: none;
   }
