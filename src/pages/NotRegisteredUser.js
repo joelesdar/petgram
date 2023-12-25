@@ -5,12 +5,11 @@ import { useRegisterMutation } from '../hooks/useRegisterMutation'
 import { useLoginMutation } from '../hooks/useLoginMutation'
 
 export const NotRegisteredUser = () => {
-  const { activateLogged } = useContext(AppContext)
+  const { activateLogged, activeLogin } = useContext(AppContext)
   const { registerMutation, loading: loadingRegister, error: errorRegister } = useRegisterMutation()
   const { loginMutation, loading: loadingLogin, error: errorLoading } = useLoginMutation()
   const errorMsg = errorRegister && 'El usuario ya existe o hay algún problema'
   const errorLoginMsg = errorLoading && 'La contraseña no es correcta o el usuario no existe'
-
   const onSubmit = ({ email, password }) => {
     const input = { email, password }
     const variable = { input }
@@ -34,8 +33,13 @@ export const NotRegisteredUser = () => {
 
   return (
     <>
-      <UserForm onSubmit={onSubmit} error={errorMsg} disabled={loadingRegister} title='Registrarse' />
-      <UserForm onSubmit={onSubmitLogin} error={errorLoginMsg} disabled={loadingLogin} title='Ingresar' />
+      {!activeLogin
+        ? (
+          <UserForm onSubmit={onSubmit} error={errorMsg} disabled={loadingRegister} title='Registrarse' signMethodText='¿Ya tienes una cuenta?' />
+          )
+        : (
+          <UserForm onSubmit={onSubmitLogin} error={errorLoginMsg} disabled={loadingLogin} title='Ingresar' signMethodText='¿No tienes una cuenta?' />
+          )}
     </>
   )
 }

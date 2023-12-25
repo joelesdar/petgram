@@ -43,3 +43,14 @@ export const Error = styled.span`
   height: 32px;
   text-align: center;
 `
+
+export const SignMethod = styled.p`
+  text-align: center;
+  margin-top: 20px;
+  a {
+    color: var(--main-blue);
+    :hover {
+      cursor: pointer;
+    }
+  }
+`

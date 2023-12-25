@@ -9,6 +9,12 @@ const AppProvider = (props) => {
 
   const client = useApolloClient()
 
+  const [activeLogin, setActiveLogin] = useState(false)
+  const toggleLoginState = () => {
+    setActiveLogin((prevActiveLogin) => !prevActiveLogin)
+    console.log(activeLogin)
+  }
+
   const activateLogged = (token) => {
     setIsLogged(true)
     window.sessionStorage.setItem('token', token)
@@ -21,7 +27,7 @@ const AppProvider = (props) => {
   }
 
   return (
-    <AppContext.Provider value={{ isLogged, activateLogged, removeLogged }}>
+    <AppContext.Provider value={{ isLogged, activateLogged, removeLogged, activeLogin, toggleLoginState }}>
       {props.children}
     </AppContext.Provider>
   )
